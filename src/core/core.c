@@ -1,6 +1,5 @@
 #include <limits.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <time.h>
 
 #include "core.h"
@@ -63,6 +62,11 @@ void bowel()
     }
 }
 
+void clean()
+{
+    state.poop = 0;
+}
+
 void start_play(struct PlayEnv **play_env)
 {
     *play_env = malloc(sizeof(struct PlayEnv));
@@ -99,11 +103,6 @@ void idle()
 {
     starve();
     bowel();
-}
-
-void clean()
-{
-    state.poop = 0;
 }
 
 void init()
