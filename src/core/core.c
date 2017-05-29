@@ -1,4 +1,6 @@
+#include <limits.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <time.h>
 
 #include "core.h"
@@ -59,6 +61,38 @@ void bowel()
                 ++state.poop;
         }
     }
+}
+
+void start_play(struct PlayEnv **play_env)
+{
+    *play_env = malloc(sizeof(struct PlayEnv));
+
+    (*play_env)->games = 0;
+    (*play_env)->games = 0;
+    (*play_env)->games = 0;
+}
+
+void play(unsigned int x,
+        unsigned int mod,
+        bool predicate(unsigned int, unsigned int),
+        struct PlayEnv *play_env)
+{
+    unsigned int temp = rand();
+    while (temp >= (RAND_MAX/mod)*mod)
+        temp = rand();
+    temp %= mod;
+
+    if (predicate(x, mod))
+        ++play_env->wins;
+    else
+        ++play_env->losses;
+
+    ++play_env->games;
+}
+
+void end_play(struct PlayEnv **play_env)
+{
+    free(*play_env);
 }
 
 void idle()

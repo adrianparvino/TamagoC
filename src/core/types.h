@@ -10,5 +10,11 @@ struct TamagoC {
     uint8_t poop;
 };
 
+struct PlayEnv {
+    uint8_t games;
+    uint8_t wins;
+    uint8_t losses;
+};
+
 #define TAMAGOC_CORE_TYPES_H
 #endif
