@@ -48,7 +48,7 @@ void starve()
 
 void bowel()
 {
-	state.bowel = (255 - bowel_rate > state.bowel)
+    state.bowel = (255 - bowel_rate > state.bowel)
         ? state.bowel + bowel_rate
         : 255;
     if (state.bowel > 128)
